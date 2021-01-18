@@ -1,5 +1,5 @@
 formOne.addEventListener('click', function () {
-    browser.myapi.setOne('#today-pane-panel', 'appendChild', 'eventView');
+    browser.myapi.setOne('#today-pane-panel', 'appendChild', 'timeTable');
 async function execute(theme) { 
 
 var theme = await browser.theme.getCurrent();
