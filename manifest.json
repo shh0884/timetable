@@ -1,0 +1,43 @@
+﻿{
+	"manifest_version": 2,
+             "applications": {
+                "gecko": {
+                   "id": "Timetable@Sungho.Hwang",
+                   "strict_min_version": "78.0"
+                    }
+             },
+	"name": "Timetable",
+	"version": "1.2",
+	"description": "",
+             "icons": {
+               "32": "tt32.png"
+                 },
+             "browser_action": {
+                 "default_icon": "tt32.png",
+                 "default_title": "Timetable",
+                "default_popup": "popup.html"
+               },
+             "permissions": [
+              ],
+"background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+ "experiment_apis": {
+    "myapi": {
+      "schema": "schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "paths": [
+          [
+            "myapi"
+          ]
+        ],
+       "script": "implementation.js"
+      }
+  }
+  }
+}
