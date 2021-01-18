@@ -667,7 +667,7 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     function previousData () { window.addEventListener("storage", 
                     function (event) {
                             var ttId = Number(event.target.parentNode.gettribute('data-TT-DB-id'));
-                            var request = window.indexedDB.open("TT-DB", 1);
+                            var request = window.indexedDB.open("TT-DB", 2);
                         var db = event.target.result;
                             var transaction = db.transaction(["TT-OS"], "readwrite");
                             var objectStore = transaction.objectStore("TT-OS");
@@ -681,7 +681,7 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     function nextData () { window.addEventListener("storage", 
                     function (event) {
                             var ttId = Number(event.target.parentNode.gettribute('data-TT-DB-id'));
-                            var request = window.indexedDB.open("TT-DB", 1);
+                            var request = window.indexedDB.open("TT-DB", 2);
                         var db = event.target.result;
                             var transaction = db.transaction(["TT-OS"], "readwrite");
                             var objectStore = transaction.objectStore("TT-OS");
@@ -694,7 +694,7 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     //4)
                     function updateData () { window.addEventListener("storage", 
                     function (event) {
-                            var request = window.indexedDB.open("TT-DB", 1);
+                            var request = window.indexedDB.open("TT-DB", 2);
                             var db = event.target.result;
                             var transaction = db.transaction(["TT-OS"], "readwrite");
                             var objectStore = transaction.objectStore("TT-OS");
@@ -707,7 +707,7 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     //5)
                     function deleteData () { window.addEventListener("storage", 
                     function (event) {
-                            var request = window.indexedDB.open("TT-DB", 1);
+                            var request = window.indexedDB.open("TT-DB", 2);
                             var db = event.target.result;
                             var transaction = db.transaction(["TT-OS"], "readwrite");
                             var objectStore = transaction.objectStore("TT-OS");
