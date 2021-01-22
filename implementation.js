@@ -41,12 +41,12 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     timeTable.style.display = 'flex';
                     timeTable.style.flexDirection = 'column';
                     timeTable.style.flexWrap = 'wrap';
-                    var body = window.document.createElement("body");
-                    body.setAttribute("autocomplete", "on");
+                    var mbox = window.document.createElement("box");
+                    mbox.setAttribute("action", "mbox");
                     var dateBoxO = window.document.createXULElement('vbox');
                     var dateBoxT = window.document.createXULElement('hbox');
                     var dateToday = window.document.createXULElement('hbox');
-                    function bodyatDate(date) {
+                    function mboxatDate(date) {
                         var d = new Date(date),
                             month = '' + (d.getMonth() + 1),
                             day = '' + d.getDate(),
@@ -54,7 +54,7 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
 
                         return [year, month, day].join('-');
                     };
-                    dateToday.append(bodyatDate(Date()));
+                    dateToday.append(mboxatDate(Date()));
                     dateToday.style.display = "flex";
                     dateToday.style.alignItems = "center";
                     dateToday.style.justifyContent = "center";
@@ -106,9 +106,9 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     dateBoxO.appendChild(miniMonthBtn);
                     dateBoxT.appendChild(inputDate);
                     dateBoxT.appendChild(dateToday);
-                    body.appendChild(dateBoxO);
-                    body.appendChild(dateBoxT);
-                    
+                    mbox.appendChild(dateBoxO);
+                    mbox.appendChild(dateBoxT);
+
                     var AM06 = window.document.createXULElement('hbox');
                     AM06.style.padding = '0';
                     AM06.style.margin = '0';
@@ -127,10 +127,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input06.style.align = 'right';
                     input06.setAttribute("type", "text");
                     input06.setAttribute("id", "input06");
-                    input06.textContent = input06.value;
+                    input06.setAttribute("required", "off");
                     AM06.appendChild(label06);
                     AM06.appendChild(input06);
-                    body.appendChild(AM06);
+                    mbox.appendChild(AM06);
 
                     var AM07 = window.document.createXULElement('hbox');
                     AM07.style.padding = '0';
@@ -150,10 +150,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input07.style.align = 'right';
                     input07.setAttribute("type", "text");
                     input07.setAttribute("id", "input07");
-                    input07.textContent = input07.value;
+                    input07.setAttribute("required", "off");
                     AM07.appendChild(label07);
                     AM07.appendChild(input07);
-                    body.appendChild(AM07);
+                    mbox.appendChild(AM07);
 
                     var AM08 = window.document.createXULElement('hbox');
                     AM08.style.padding = '0';
@@ -173,10 +173,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input08.style.align = 'right';
                     input08.setAttribute("type", "text");
                     input08.setAttribute("id", "input08");
-                    input08.textContent = input08.value;
+                    input08.setAttribute("required", "off");
                     AM08.appendChild(label08);
                     AM08.appendChild(input08);
-                    body.appendChild(AM08);
+                    mbox.appendChild(AM08);
 
                     var AM09 = window.document.createXULElement('hbox');
                     AM09.style.padding = '0';
@@ -196,10 +196,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input09.style.align = 'right';
                     input09.setAttribute("type", "text");
                     input09.setAttribute("id", "input09");
-                    input09.textContent = input09.value;
+                    input09.setAttribute("required", "off");
                     AM09.appendChild(label09);
                     AM09.appendChild(input09);
-                    body.appendChild(AM09);
+                    mbox.appendChild(AM09);
 
                     var AM10 = window.document.createXULElement('hbox');
                     AM10.style.padding = '0';
@@ -219,10 +219,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input10.style.align = 'right';
                     input10.setAttribute("type", "text");
                     input10.setAttribute("id", "input10");
-                    input10.textContent = input10.value;
+                    input10.setAttribute("required", "off");
                     AM10.appendChild(label10);
                     AM10.appendChild(input10);
-                    body.appendChild(AM10);
+                    mbox.appendChild(AM10);
 
                     var AM11 = window.document.createXULElement('hbox');
                     AM11.style.padding = '0';
@@ -242,10 +242,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input11.style.align = 'right';
                     input11.setAttribute("type", "text");
                     input11.setAttribute("id", "input11");
-                    input11.textContent = input11.value;
+                    input11.setAttribute("required", "off");
                     AM11.appendChild(label11);
                     AM11.appendChild(input11);
-                    body.appendChild(AM11);
+                    mbox.appendChild(AM11);
 
                     var MD12 = window.document.createXULElement('hbox');
                     MD12.style.padding = '0';
@@ -265,10 +265,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input12.style.align = 'right';
                     input12.setAttribute("type", "text");
                     input12.setAttribute("id", "input12");
-                    input12.textContent = input06.value;
+                    input12.setAttribute("required", "off");
                     MD12.appendChild(label12);
                     MD12.appendChild(input12);
-                    body.appendChild(MD12);
+                    mbox.appendChild(MD12);
 
                     var PM01 = window.document.createXULElement('hbox');
                     PM01.style.padding = '0';
@@ -288,10 +288,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input13.style.align = 'right';
                     input13.setAttribute("type", "text");
                     input13.setAttribute("id", "input13");
-                    input13.textContent = input13.value;
+                    input13.setAttribute("required", "off");
                     PM01.appendChild(label13);
                     PM01.appendChild(input13);
-                    body.appendChild(PM01);
+                    mbox.appendChild(PM01);
 
                     var PM02 = window.document.createXULElement('hbox');
                     PM02.style.padding = '0';
@@ -311,10 +311,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input14.style.align = 'right';
                     input14.setAttribute("type", "text");
                     input14.setAttribute("id", "input14");
-                    input14.textContent = input14.value;
+                    input14.setAttribute("required", "off");
                     PM02.appendChild(label14);
                     PM02.appendChild(input14);
-                    body.appendChild(PM02);
+                    mbox.appendChild(PM02);
 
                     var PM03 = window.document.createXULElement('hbox');
                     PM03.style.padding = '0';
@@ -334,10 +334,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input15.style.align = 'right';
                     input15.setAttribute("type", "text");
                     input15.setAttribute("id", "input15");
-                    input15.textContent = input15.value;
+                    input15.setAttribute("required", "off");
                     PM03.appendChild(label15);
                     PM03.appendChild(input15);
-                    body.appendChild(PM03);
+                    mbox.appendChild(PM03);
 
                     var PM04 = window.document.createXULElement('hbox');
                     PM04.style.padding = '0';
@@ -357,10 +357,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input16.style.align = 'right';
                     input16.setAttribute("type", "text");
                     input16.setAttribute("id", "input16");
-                    input16.textContent = input16.value;
+                    input16.setAttribute("required", "off");
                     PM04.appendChild(label16);
                     PM04.appendChild(input16);
-                    body.appendChild(PM04);
+                    mbox.appendChild(PM04);
 
                     var PM05 = window.document.createXULElement('hbox');
                     PM05.style.padding = '0';
@@ -380,10 +380,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input17.style.align = 'right';
                     input17.setAttribute("type", "text");
                     input17.setAttribute("id", "input17");
-                    input17.textContent = input17.value;
+                    input17.setAttribute("required", "off");
                     PM05.appendChild(label17);
                     PM05.appendChild(input17);
-                    body.appendChild(PM05);
+                    mbox.appendChild(PM05);
 
                     var PM06 = window.document.createXULElement('hbox');
                     PM06.style.padding = '0';
@@ -403,10 +403,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input18.style.align = 'right';
                     input18.setAttribute("type", "text");
                     input18.setAttribute("id", "input18");
-                    input18.textContent = input18.value;
+                    input18.setAttribute("required", "off");
                     PM06.appendChild(label18);
                     PM06.appendChild(input18);
-                    body.appendChild(PM06);
+                    mbox.appendChild(PM06);
 
                     var PM07 = window.document.createXULElement('hbox');
                     PM07.style.padding = '0';
@@ -426,10 +426,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input19.style.align = 'right';
                     input19.setAttribute("type", "text");
                     input19.setAttribute("id", "input19");
-                    input19.textContent = input19.value;
+                    input19.setAttribute("required", "off");
                     PM07.appendChild(label19);
                     PM07.appendChild(input19);
-                    body.appendChild(PM07);
+                    mbox.appendChild(PM07);
 
                     var PM08 = window.document.createXULElement('hbox');
                     PM08.style.padding = '0';
@@ -449,10 +449,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input20.style.align = 'right';
                     input20.setAttribute("type", "text");
                     input20.setAttribute("id", "input20");
-                    input20.textContent = input20.value;
+                    input20.setAttribute("required", "off");
                     PM08.appendChild(label20);
                     PM08.appendChild(input20);
-                    body.appendChild(PM08);
+                    mbox.appendChild(PM08);
 
                     var PM09 = window.document.createXULElement('hbox');
                     PM09.style.padding = '0';
@@ -472,10 +472,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input21.style.align = 'right';
                     input21.setAttribute("type", "text");
                     input21.setAttribute("id", "input21");
-                    input21.textContent = input21.value;
+                    input21.setAttribute("required", "off");
                     PM09.appendChild(label21);
                     PM09.appendChild(input21);
-                    body.appendChild(PM09);
+                    mbox.appendChild(PM09);
 
                     var PM10 = window.document.createXULElement('hbox');
                     PM10.style.padding = '0';
@@ -495,10 +495,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input22.style.align = 'right';
                     input22.setAttribute("type", "text");
                     input22.setAttribute("id", "input22");
-                    input22.textContent = input22.value;
+                    input22.setAttribute("required", "off");
                     PM10.appendChild(label22);
                     PM10.appendChild(input22);
-                    body.appendChild(PM10);
+                    mbox.appendChild(PM10);
 
                     var PM11 = window.document.createXULElement('hbox');
                     PM11.style.padding = '0';
@@ -518,10 +518,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input23.style.align = 'right';
                     input23.setAttribute("type", "text");
                     input23.setAttribute("id", "input23");
-                    input23.textContent = input23.value;
+                    input23.setAttribute("required", "off");
                     PM11.appendChild(label23);
                     PM11.appendChild(input23);
-                    body.appendChild(PM11);
+                    mbox.appendChild(PM11);
 
                     var MN00 = window.document.createXULElement('hbox');
                     MN00.style.padding = '0';
@@ -541,10 +541,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input00.style.align = 'right';
                     input00.setAttribute("type", "text");
                     input00.setAttribute("id", "input00");
-                    input00.textContent = input00.value;
+                    input00.setAttribute("required", "off");
                     MN00.appendChild(label00);
                     MN00.appendChild(input00);
-                    body.appendChild(MN00);
+                    mbox.appendChild(MN00);
 
                     var AM01 = window.document.createXULElement('hbox');
                     AM01.style.padding = '0';
@@ -564,10 +564,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input01.style.align = 'right';
                     input01.setAttribute("type", "text");
                     input01.setAttribute("id", "input01");
-                    input01.textContent = input01.value;
+                    input01.setAttribute("required", "off");
                     AM01.appendChild(label01);
                     AM01.appendChild(input01);
-                    body.appendChild(AM01);
+                    mbox.appendChild(AM01);
 
                     var AM02 = window.document.createXULElement('hbox');
                     AM02.style.padding = '0';
@@ -587,10 +587,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input02.style.align = 'right';
                     input02.setAttribute("type", "text");
                     input02.setAttribute("id", "input02");
-                    input02.textContent = input02.value;
+                    input02.setAttribute("required", "off");
                     AM02.appendChild(label02);
                     AM02.appendChild(input02);
-                    body.appendChild(AM02);
+                    mbox.appendChild(AM02);
 
                     var AM03 = window.document.createXULElement('hbox');
                     AM03.style.padding = '0';
@@ -610,10 +610,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input03.style.align = 'right';
                     input03.setAttribute("type", "text");
                     input03.setAttribute("id", "input03");
-                    input03.textContent = input03.value;
+                    input03.setAttribute("required", "off");
                     AM03.appendChild(label03);
                     AM03.appendChild(input03);
-                    body.appendChild(AM03);
+                    mbox.appendChild(AM03);
 
                     var AM04 = window.document.createXULElement('hbox');
                     AM04.style.padding = '0';
@@ -633,10 +633,10 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input04.style.align = 'right';
                     input04.setAttribute("type", "text");
                     input04.setAttribute("id", "input04");
-                    input04.textContent = input04.value;
+                    input04.setAttribute("required", "off");
                     AM04.appendChild(label04);
                     AM04.appendChild(input04);
-                    body.appendChild(AM04);
+                    mbox.appendChild(AM04);
 
                     var AM05 = window.document.createXULElement('hbox');
                     AM05.style.padding = '0';
@@ -656,254 +656,285 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     input05.style.align = 'right';
                     input05.setAttribute("type", "text");
                     input05.setAttribute("id", "input05");
-                    input05.textContent = input05.value;
+                    input05.setAttribute("required", "off");
                     AM05.appendChild(label05);
                     AM05.appendChild(input05);
-                    body.appendChild(AM05);
+                    mbox.appendChild(AM05);
 
-                    var list = window.document.createElement("ul");
                     var h1 = window.document.createElement("h1");
                     var h2 = window.document.createElement("h2");
                     timeTable.appendChild(h1);
                     h1.style.fontSize = "13px";
-                    h1.textContent = "Timetable - Mozilla Thunderbird";
+                    h1.innerHTML = "Timetable - Mozilla Thunderbird";
                     h1.style.display = "flex";
                     h1.style.alignItems = "center";
                     h1.style.justifyContent = "center";
-                    timeTable.appendChild(body);
-                    timeTable.appendChild(list);
                     h2.style.fontSize = "13px";
-                    var previousBtn = window.document.createElement("button");
-                    previousBtn.textContent = "Previous";
-                    previousBtn.style.display = "flex";
-                    previousBtn.style.alignItems = "center";
-                    previousBtn.style.justifyContent = "center";
-                    var nextBtn = window.document.createElement("button");
-                    nextBtn.textContent = "Next";
-                    nextBtn.style.display = "flex";
-                    nextBtn.style.alignItems = "center";
-                    nextBtn.style.justifyContent = "center";
-                    var updateBtn = window.document.createElement("button");
-                    updateBtn.textContent = "Update";
-                    updateBtn.style.display = "flex";
-                    updateBtn.style.alignItems = "center";
-                    updateBtn.style.justifyContent = "center";
-                    var deleteBtn = window.document.createElement("button");
-                    deleteBtn.textContent = "Delete";
-                    deleteBtn.style.display = "flex";
-                    deleteBtn.style.alignItems = "center";
-                    deleteBtn.style.justifyContent = "center";
-                    var buttonBoxOne = window.document.createXULElement("hbox");
+                    var updateButton = window.document.createElement("button");
+                    updateButton.innerHTML = "Update";
+                    updateButton.style.display = "flex";
+                    updateButton.style.alignItems = "center";
+                    updateButton.style.justifyContent = "center";
+                    var previousButton = window.document.createElement("button");
+                    previousButton.innerHTML = "Previous";
+                    previousButton.style.display = "flex";
+                    previousButton.style.alignItems = "center";
+                    previousButton.style.justifyContent = "center";
+                    var nextButton = window.document.createElement("button");
+                    nextButton.innerHTML = "Next";
+                    nextButton.style.display = "flex";
+                    nextButton.style.alignItems = "center";
+                    nextButton.style.justifyContent = "center";
+                    var buttonBoxOne = window.document.createXULElement("vbox");
                     var buttonBoxTwo = window.document.createXULElement("hbox");
                     buttonBoxOne.style.display = "flex";
-                    buttonBoxOne.style.alignItems = "center";
-                    buttonBoxOne.style.justifyContent = "center";
+                    buttonBoxOne.style.alignItems = "right";
+                    buttonBoxOne.style.justifyContent = "right";
                     buttonBoxTwo.style.display = "flex";
-                    buttonBoxTwo.style.alignItems = "center";
-                    buttonBoxTwo.style.justifyContent = "center";
-                    previousBtn.style.fontSize = "13px";
-                    nextBtn.style.fontSize = "13px";
-                    updateBtn.style.fontSize = "13px";
-                    deleteBtn.style.fontSize = "13px";
-                    previousBtn.style.border = "1px solid";
-                    nextBtn.style.border = "1px solid";
-                    updateBtn.style.border = "1px solid";
-                    deleteBtn.style.border = "1px solid";
-                    buttonBoxOne.appendChild(updateBtn);
-                    buttonBoxOne.appendChild(deleteBtn);
-                    buttonBoxTwo.appendChild(previousBtn);
-                    buttonBoxTwo.appendChild(nextBtn);
-                    body.appendChild(buttonBoxOne);
-                    body.appendChild(buttonBoxTwo);
-                    body.style.overflow = "auto";
-                    previousBtn.onclick = "previousData();";
-                    previousBtn.onclick = "nextData();";
-                    updateBtn.onclick = "updateData();";
-                    deleteBtn.onclick = "deleteData();";
-                    previousBtn.style.width = "90px";
-                    nextBtn.style.width = "90px";
-                    updateBtn.style.width = "90px";
-                    deleteBtn.style.width = "90px";
+                    buttonBoxTwo.style.alignItems = "right";
+                    buttonBoxTwo.style.justifyContent = "right";
+                    updateButton.style.fontSize = "13px";
+                    updateButton.style.border = "1px solid";
+                    previousButton.style.fontSize = "13px";
+                    previousButton.style.border = "1px solid";
+                    nextButton.style.fontSize = "13px";
+                    nextButton.style.border = "1px solid";
+                    buttonBoxOne.appendChild(updateButton);
+                    buttonBoxTwo.appendChild(previousButton);
+                    buttonBoxTwo.appendChild(nextButton);
+                    mbox.appendChild(buttonBoxOne);
+                    mbox.appendChild(buttonBoxTwo);
+                    mbox.style.overflow = "auto";
+                    updateButton.style.width = "80px";
+                    previousButton.style.width = "80px";
+                    nextButton.style.width = "80px";
+                    timeTable.appendChild(mbox);
                     timeTable.appendChild(h2);
 
                     window.document.getElementById("today-pane-panel").appendChild(timeTable);
 
-                    //1)
                     var db;
-                    var dbName = "TT-DB";
-                    var request = window.indexedDB.open("TT-DB", 4);
+                    var request = window.indexedDB.open("TT-DB", 12);
 
-                    request.onerror = function (event) {
-                        h2.textContent += "Error loading database.";
+                    request.onupgradeneeded = function () {
+                        db = request.result;
+
+                        var objectStore = db.createObjectStore("timetable12", { keyPath: "id", autoIncrement: true });
+
+                        var dateIndex = objectStore.createIndex("inputDate", "inputDate", { unique: true });
+                        var i06Index = objectStore.createIndex("input06", "input06", { unique: true });
+                        var i07Index = objectStore.createIndex("input07", "input07", { unique: true });
+                        var i08Index = objectStore.createIndex("input08", "input08", { unique: true });
+                        var i09Index = objectStore.createIndex("input09", "input09", { unique: true });
+                        var i10Index = objectStore.createIndex("input10", "input10", { unique: true });
+                        var i11Index = objectStore.createIndex("input11", "input11", { unique: true });
+                        var i12Index = objectStore.createIndex("input12", "input12", { unique: true });
+                        var i13Index = objectStore.createIndex("input13", "input13", { unique: true });
+                        var i14Index = objectStore.createIndex("input14", "input14", { unique: true });
+                        var i15Index = objectStore.createIndex("input15", "input15", { unique: true });
+                        var i16Index = objectStore.createIndex("input16", "input16", { unique: true });
+                        var i17Index = objectStore.createIndex("input17", "input17", { unique: true });
+                        var i18Index = objectStore.createIndex("input18", "input18", { unique: true });
+                        var i19Index = objectStore.createIndex("input19", "input19", { unique: true });
+                        var i20Index = objectStore.createIndex("input20", "input20", { unique: true });
+                        var i21Index = objectStore.createIndex("input21", "input21", { unique: true });
+                        var i22Index = objectStore.createIndex("input22", "input22", { unique: true });
+                        var i23Index = objectStore.createIndex("input23", "input23", { unique: true });
+                        var i00Index = objectStore.createIndex("input00", "input00", { unique: true });
+                        var i01Index = objectStore.createIndex("input01", "input01", { unique: true });
+                        var i02Index = objectStore.createIndex("input02", "input02", { unique: true });
+                        var i03Index = objectStore.createIndex("input03", "input03", { unique: true });
+                        var i04Index = objectStore.createIndex("input04", "input04", { unique: true });
+                        var i05Index = objectStore.createIndex("input05", "input05", { unique: true });
+
+                        var data = {
+                            iDate: "2021-1-1",
+                            i06: "ready to write",
+                            i07: "ready to write",
+                            i08: "ready to write",
+                            i09: "ready to write",
+                            i10: "ready to write",
+                            i11: "ready to write",
+                            i12: "ready to write",
+                            i13: "ready to write",
+                            i14: "ready to write",
+                            i15: "ready to write",
+                            i16: "ready to write",
+                            i17: "ready to write",
+                            i18: "ready to write",
+                            i19: "ready to write",
+                            i20: "ready to write",
+                            i21: "ready to write",
+                            i22: "ready to write",
+                            i23: "ready to write",
+                            i00: "ready to write",
+                            i01: "ready to write",
+                            i02: "ready to write",
+                            i03: "ready to write",
+                            i04: "ready to write",
+                            i05: "ready to write"
+                        };
+                    objectStore.put(data);
                     };
-                    request.onsuccess = function (event) {
-                        db = event.target.result;
-                        h2.textContent += "Database created.";
 
-                    window.addEventListener("storage", request.onupgradeneeded);
+                    request.onerror = function () {
+                        h2.value += "Error loading database.";
+                    };
+                    request.onsuccess = function () {
+                        h2.value += "Success!";
                     };
 
-                    request.onupgradeneeded = function (event) {
-                            db = event.target.result;
-                            var objectStore = db.createObjectStore("TT-OS", { keyPath: "id", autoIncrement: true });
-                            objectStore.createIndex("inputDate", "inputDate", { unique: false });
-                            objectStore.createIndex("input06", "input06", { unique: false });
-                            objectStore.createIndex("input07", "input07", { unique: false });
-                            objectStore.createIndex("input08", "input08", { unique: false });
-                            objectStore.createIndex("input09", "input09", { unique: false });
-                            objectStore.createIndex("input10", "input10", { unique: false });
-                            objectStore.createIndex("input11", "input11", { unique: false });
-                            objectStore.createIndex("input12", "input12", { unique: false });
-                            objectStore.createIndex("input13", "input13", { unique: false });
-                            objectStore.createIndex("input14", "input14", { unique: false });
-                            objectStore.createIndex("input15", "input15", { unique: false });
-                            objectStore.createIndex("input16", "input16", { unique: false });
-                            objectStore.createIndex("input17", "input17", { unique: false });
-                            objectStore.createIndex("input18", "input18", { unique: false });
-                            objectStore.createIndex("input19", "input19", { unique: false });
-                            objectStore.createIndex("input20", "input20", { unique: false });
-                            objectStore.createIndex("input21", "input21", { unique: false });
-                            objectStore.createIndex("input22", "input22", { unique: false });
-                            objectStore.createIndex("input23", "input23", { unique: false });
-                            objectStore.createIndex("input00", "input00", { unique: false });
-                            objectStore.createIndex("input01", "input01", { unique: false });
-                            objectStore.createIndex("input02", "input02", { unique: false });
-                            objectStore.createIndex("input03", "input03", { unique: false });
-                            objectStore.createIndex("input04", "input04", { unique: false });
-                            objectStore.createIndex("input05", "input05", { unique: false });
+                    updateButton.onclick = function () {
+                        db = request.result;
+                        var transaction = db.transaction("timetable12", "readwrite");
+                        var objectStore = transaction.objectStore("timetable12");
+
+                        var dateVal = window.document.getElementById("inputDate").value;
+                        var input06Val = window.document.getElementById("input06").value;
+                        var input07Val = window.document.getElementById("input07").value;
+                        var input08Val = window.document.getElementById("input08").value;
+                        var input09Val = window.document.getElementById("input09").value;
+                        var input10Val = window.document.getElementById("input10").value;
+                        var input11Val = window.document.getElementById("input11").value;
+                        var input12Val = window.document.getElementById("input12").value;
+                        var input13Val = window.document.getElementById("input13").value;
+                        var input14Val = window.document.getElementById("input14").value;
+                        var input15Val = window.document.getElementById("input15").value;
+                        var input16Val = window.document.getElementById("input16").value;
+                        var input17Val = window.document.getElementById("input17").value;
+                        var input18Val = window.document.getElementById("input18").value;
+                        var input19Val = window.document.getElementById("input19").value;
+                        var input20Val = window.document.getElementById("input20").value;
+                        var input21Val = window.document.getElementById("input21").value;
+                        var input22Val = window.document.getElementById("input22").value;
+                        var input23Val = window.document.getElementById("input23").value;
+                        var input00Val = window.document.getElementById("input00").value;
+                        var input01Val = window.document.getElementById("input01").value;
+                        var input02Val = window.document.getElementById("input02").value;
+                        var input03Val = window.document.getElementById("input03").value;
+                        var input04Val = window.document.getElementById("input04").value;
+                        var input05Val = window.document.getElementById("input05").value;
 
                             var data = {
-                                "inputDate": "2021-1-1",
-                                "input06": "Input text",
-                                "input07": "Input text",
-                                "input08": "Input text",
-                                "input09": "Input text",
-                                "input10": "Input text",
-                                "input11": "Input text",
-                                "input12": "Input text",
-                                "input13": "Input text",
-                                "input14": "Input text",
-                                "input15": "Input text",
-                                "input16": "Input text",
-                                "input17": "Input text",
-                                "input18": "Input text",
-                                "input19": "Input text",
-                                "input20": "Input text",
-                                "input21": "Input text",
-                                "input22": "Input text",
-                                "input23": "Input text",
-                                "input00": "Input text",
-                                "input01": "Input text",
-                                "input02": "Input text",
-                                "input03": "Input text",
-                                "input04": "Input text",
-                                "input05": "Input text"
+                                iDate: dateVal,
+                                i06: input06Val,
+                                i07: input07Val,
+                                i08: input08Val,
+                                i09: input09Val,
+                                i10: input10Val,
+                                i11: input11Val,
+                                i12: input12Val,
+                                i13: input13Val,
+                                i14: input14Val,
+                                i15: input15Val,
+                                i16: input16Val,
+                                i17: input17Val,
+                                i18: input18Val,
+                                i19: input19Val,
+                                i20: input20Val,
+                                i21: input21Val,
+                                i22: input22Val,
+                                i23: input23Val,
+                                i00: input00Val,
+                                i01: input01Val,
+                                i02: input02Val,
+                                i03: input03Val,
+                                i04: input04Val,
+                                i05: input05Val
                             };
+                            objectStore.put(data);  
 
-                            objectStore.transaction.oncomplete = function (event) {
-                                h2.textContent += "Data finished.";
+                            transaction.oncomplete = function () {
+                                h2.textContent += ">";
                             };
-                                objectStore.add(data);
-                                objectStore.transaction.oncomplete = function (event) {
-                                    h2.textContent += "Data added.";
-                            }
+                        }
+                    previousButton.onclick = function () {
+                        db = request.result;
+                        var transaction = db.transaction("timetable12", "readwrite");
+                        var objectStore = db.transaction(["timetable12"]).objectStore("timetable12");
+                        var timetableId = objectStore.index("id");
+                        for (var i = 1825; i < timetableId.length; i--) {
+                        var ttIndex = objectStore.index("id[i]");
+                        ttIndex.openCursor().onsuccess = function(event) {
+                        var cursor = event.target.reuslt;
+                        if (cursor) {
+                        window.document.getElementById("inputDate").toString("iDate: " + cursor.result.iDate);
+                        window.document.getElementById("input06").toString("i06: " + cursor.resut.i06);
+                        window.document.getElementById("input07").toString("i07: " + cursor.resut.i07);
+                        window.document.getElementById("input08").toString("i08: " + cursor.resut.i08);
+                        window.document.getElementById("input09").toString("i09: " + cursor.resut.i09);
+                        window.document.getElementById("input10").toString("i10: " + cursor.resut.i10);
+                        window.document.getElementById("input11").toString("i11: " + cursor.resut.i11);
+                        window.document.getElementById("input12").toString("i12: " + cursor.resut.i12);
+                        window.document.getElementById("input13").toString("i13: " + cursor.resut.i13);
+                        window.document.getElementById("input14").toString("i14: " + cursor.resut.i14);
+                        window.document.getElementById("input15").toString("i15: " + cursor.resut.i15);
+                        window.document.getElementById("input16").toString("i16: " + cursor.resut.i16);
+                        window.document.getElementById("input17").toString("i17: " + cursor.resut.i17);
+                        window.document.getElementById("input18").toString("i18: " + cursor.resut.i18);
+                        window.document.getElementById("input19").toString("i19: " + cursor.resut.i19);
+                        window.document.getElementById("input20").toString("i20: " + cursor.resut.i20);
+                        window.document.getElementById("input21").toString("i21: " + cursor.resut.i21);
+                        window.document.getElementById("input22").toString("i22: " + cursor.resut.i22);
+                        window.document.getElementById("input23").toString("i23: " + cursor.resut.i23);
+                        window.document.getElementById("input00").toString("i00: " + cursor.resut.i00);
+                        window.document.getElementById("input01").toString("i01: " + cursor.resut.i01);
+                        window.document.getElementById("input02").toString("i02: " + cursor.resut.i02);
+                        window.document.getElementById("input03").toString("i03: " + cursor.resut.i03);
+                        window.document.getElementById("input04").toString("i04: " + cursor.resut.i04);
+                        window.document.getElementById("input05").toString("i05: " + cursor.resut.i05);
+                         cursor.continue();
+                                }
+                            };
+                        };
+                            transaction.oncomplete = function () {
+                                h2.textContent += "-1";
+                            };
+                        }
+                    nextButton.onclick = function () {
+                        db = request.result;
+                        var transaction = db.transaction("timetable12", "readwrite");
+                        var objectStore = db.transaction(["timetable12"]).objectStore("timetable12");
+                        var timetableId = objectStore.index("id");
+                        for (var j = 1; j < timetableId.length; j++) {
+                        var ttIndex = objectStore.index("id[j]");
+                        ttIndex.openCursor().onsuccess = function(event) {
+                        var cursor = event.target.reuslt;
+                        if (cursor) {
+                        window.document.getElementById("inputDate").toString("iDate: " + cursor.result.iDate);
+                        window.document.getElementById("input06").toString("i06: " + cursor.resut.i06);
+                        window.document.getElementById("input07").toString("i07: " + cursor.resut.i07);
+                        window.document.getElementById("input08").toString("i08: " + cursor.resut.i08);
+                        window.document.getElementById("input09").toString("i09: " + cursor.resut.i09);
+                        window.document.getElementById("input10").toString("i10: " + cursor.resut.i10);
+                        window.document.getElementById("input11").toString("i11: " + cursor.resut.i11);
+                        window.document.getElementById("input12").toString("i12: " + cursor.resut.i12);
+                        window.document.getElementById("input13").toString("i13: " + cursor.resut.i13);
+                        window.document.getElementById("input14").toString("i14: " + cursor.resut.i14);
+                        window.document.getElementById("input15").toString("i15: " + cursor.resut.i15);
+                        window.document.getElementById("input16").toString("i16: " + cursor.resut.i16);
+                        window.document.getElementById("input17").toString("i17: " + cursor.resut.i17);
+                        window.document.getElementById("input18").toString("i18: " + cursor.resut.i18);
+                        window.document.getElementById("input19").toString("i19: " + cursor.resut.i19);
+                        window.document.getElementById("input20").toString("i20: " + cursor.resut.i20);
+                        window.document.getElementById("input21").toString("i21: " + cursor.resut.i21);
+                        window.document.getElementById("input22").toString("i22: " + cursor.resut.i22);
+                        window.document.getElementById("input23").toString("i23: " + cursor.resut.i23);
+                        window.document.getElementById("input00").toString("i00: " + cursor.resut.i00);
+                        window.document.getElementById("input01").toString("i01: " + cursor.resut.i01);
+                        window.document.getElementById("input02").toString("i02: " + cursor.resut.i02);
+                        window.document.getElementById("input03").toString("i03: " + cursor.resut.i03);
+                        window.document.getElementById("input04").toString("i04: " + cursor.resut.i04);
+                        window.document.getElementById("input05").toString("i05: " + cursor.resut.i05);
+                                }
+                            };
+                        };
+                            transaction.oncomplete = function () {
+                                h2.textContent += "+1";
+                            };
+                        }
                     }
-
-                    //2)
-                     function previousData (event) {
-                            var request = window.indexedDB.open("TT-DB", 4);
-                            var db = event.target.result;
-                            var transaction = db.transaction(["TT-OS"], "readwrite");
-                            var objectStore = transaction.objectStore("TT-OS");
-                            for (var j; j < key.length;  j--) {
-                            objectStore.get("j");
-                                inputDate.textContent = key.inputDate;
-                                input06.textContent = key.input06;
-                                input07.textContent = key.input07;
-                                input08.textContent = key.input08;
-                                input09.textContent = key.input09;
-                                input10.textContent = key.input10;
-                                input11.textContent = key.input11;
-                                input12.textContent = key.input12;
-                                input13.textContent = key.input13;
-                                input14.textContent = key.input14;
-                                input15.textContent = key.input15;
-                                input16.textContent = key.input16;
-                                input17.textContent = key.input17;
-                                input18.textContent = key.input18;
-                                input19.textContent = key.input19;
-                                input20.textContent = key.input20;
-                                input21.textContent = key.input21;
-                                input22.textContent = key.input22;
-                                input23.textContent = key.input23;
-                                input00.textContent = key.input00;
-                                input01.textContent = key.input01;
-                                input02.textContent = key.input02;
-                                input03.textContent = key.input03;
-                                input04.textContent = key.input04;
-                                input05.textContent = key.input05;
-                            }
-                    };
-
-                    //3)
-                    function nextData (event) {
-                            var request = window.indexedDB.open("TT-DB", 4);
-                        var db = event.target.result;
-                            var transaction = db.transaction(["TT-OS"], "readwrite");
-                            var objectStore = transaction.objectStore("TT-OS");
-                            for (var k = 1; k < key.length; k++) {
-                            objectStore.get("key");
-                                inputDate.textContent = key.inputDate;
-                                input06.textContent = key.input06;
-                                input07.textContent = key.input07;
-                                input08.textContent = key.input08;
-                                input09.textContent = key.input09;
-                                input10.textContent = key.input10;
-                                input11.textContent = key.input11;
-                                input12.textContent = key.input12;
-                                input13.textContent = key.input13;
-                                input14.textContent = key.input14;
-                                input15.textContent = key.input15;
-                                input16.textContent = key.input16;
-                                input17.textContent = key.input17;
-                                input18.textContent = key.input18;
-                                input19.textContent = key.input19;
-                                input20.textContent = key.input20;
-                                input21.textContent = key.input21;
-                                input22.textContent = key.input22;
-                                input23.textContent = key.input23;
-                                input00.textContent = key.input00;
-                                input01.textContent = key.input01;
-                                input02.textContent = key.input02;
-                                input03.textContent = key.input03;
-                                input04.textContent = key.input04;
-                                input05.textContent = key.input05;
-                            };
-                    };
-
-                    //4)
-                    function updateData (event) {
-                            var request = window.indexedDB.open("TT-DB", 4);
-                            var db = event.target.result;
-                            var transaction = db.transaction(["TT-OS"], "readwrite");
-                            var objectStore = transaction.objectStore("TT-OS");
-                            objectStore.put(data);
-                        request.onsuccess = function (event) {
-                            h2.textContent += "Data updated.";
-                        };
-                    };
-
-                    //5)
-                    function deleteData (event) {
-                            var request = db.transaction(["TT-OS"],  "readwrite")
-                                                          .objectStore("TT-OS")
-                                                          .delete(keys);
-                        request.onsuccess = function (event) {
-                            h2.textContent += "Data deleted.";
-                        };
-                                             }
-                                };
-                            },
+                },
                 setThree: function() {
                     var windows = Services.wm.getEnumerator("mail:3pane");
                     while (windows.hasMoreElements()) {
