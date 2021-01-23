@@ -523,28 +523,28 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     PM11.appendChild(input23);
                     mbox.appendChild(PM11);
 
-                    var MN00 = window.document.createXULElement('hbox');
-                    MN00.style.padding = '0';
-                    MN00.style.margin = '0';
-                    var label00 = window.document.createXULElement('label');
-                    label00.setAttribute('value', 'MN 00:');
-                    label00.style.height = '13px';
-                    label00.style.padding = '0';
-                    label00.style.margin = '0';
-                    label00.style.width = '50px';
-                    label00.style.textAlign = 'left';
-                    var input00 = window.document.createElement('input');
-                    input00.style.height = '13px';
-                    input00.style.width = '150px';
-                    input00.style.padding = '0';
-                    input00.style.margin = '0';
-                    input00.style.align = 'right';
-                    input00.setAttribute("type", "text");
-                    input00.setAttribute("id", "input00");
-                    input00.setAttribute("required", "off");
-                    MN00.appendChild(label00);
-                    MN00.appendChild(input00);
-                    mbox.appendChild(MN00);
+                    var MN24 = window.document.createXULElement('hbox');
+                    MN24.style.padding = '0';
+                    MN24.style.margin = '0';
+                    var label24 = window.document.createXULElement('label');
+                    label24.setAttribute('value', 'MN 24:');
+                    label24.style.height = '13px';
+                    label24.style.padding = '0';
+                    label24.style.margin = '0';
+                    label24.style.width = '50px';
+                    label24.style.textAlign = 'left';
+                    var input24 = window.document.createElement('input');
+                    input24.style.height = '13px';
+                    input24.style.width = '150px';
+                    input24.style.padding = '0';
+                    input24.style.margin = '0';
+                    input24.style.align = 'right';
+                    input24.setAttribute("type", "text");
+                    input24.setAttribute("id", "input24");
+                    input24.setAttribute("required", "off");
+                    MN24.appendChild(label24);
+                    MN24.appendChild(input24);
+                    mbox.appendChild(MN24);
 
                     var AM01 = window.document.createXULElement('hbox');
                     AM01.style.padding = '0';
@@ -671,84 +671,70 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                     h1.style.justifyContent = "center";
                     h2.style.fontSize = "13px";
                     var updateButton = window.document.createElement("button");
+                    var displayButton = window.document.createElement("button");
                     updateButton.innerHTML = "Update";
                     updateButton.style.display = "flex";
                     updateButton.style.alignItems = "center";
                     updateButton.style.justifyContent = "center";
-                    var previousButton = window.document.createElement("button");
-                    previousButton.innerHTML = "Previous";
-                    previousButton.style.display = "flex";
-                    previousButton.style.alignItems = "center";
-                    previousButton.style.justifyContent = "center";
-                    var nextButton = window.document.createElement("button");
-                    nextButton.innerHTML = "Next";
-                    nextButton.style.display = "flex";
-                    nextButton.style.alignItems = "center";
-                    nextButton.style.justifyContent = "center";
-                    var buttonBoxOne = window.document.createXULElement("vbox");
-                    var buttonBoxTwo = window.document.createXULElement("hbox");
+                    displayButton.innerHTML = "Display";
+                    displayButton.style.display = "flex";
+                    displayButton.style.alignItems = "center";
+                    displayButton.style.justifyContent = "center";
+                    var buttonBoxOne = window.document.createXULElement("hbox");
                     buttonBoxOne.style.display = "flex";
                     buttonBoxOne.style.alignItems = "right";
                     buttonBoxOne.style.justifyContent = "right";
-                    buttonBoxTwo.style.display = "flex";
-                    buttonBoxTwo.style.alignItems = "right";
-                    buttonBoxTwo.style.justifyContent = "right";
                     updateButton.style.fontSize = "13px";
                     updateButton.style.border = "1px solid";
-                    previousButton.style.fontSize = "13px";
-                    previousButton.style.border = "1px solid";
-                    nextButton.style.fontSize = "13px";
-                    nextButton.style.border = "1px solid";
+                    displayButton.style.fontSize = "13px";
+                    displayButton.style.border = "1px solid";
+                    buttonBoxOne.appendChild(displayButton);
                     buttonBoxOne.appendChild(updateButton);
-                    buttonBoxTwo.appendChild(previousButton);
-                    buttonBoxTwo.appendChild(nextButton);
                     mbox.appendChild(buttonBoxOne);
-                    mbox.appendChild(buttonBoxTwo);
                     mbox.style.overflow = "auto";
                     updateButton.style.width = "80px";
-                    previousButton.style.width = "80px";
-                    nextButton.style.width = "80px";
+                    displayButton.style.width = "80px";
                     timeTable.appendChild(mbox);
                     timeTable.appendChild(h2);
 
                     window.document.getElementById("today-pane-panel").appendChild(timeTable);
 
                     var db;
-                    var request = window.indexedDB.open("TT-DB", 12);
+                    var request = window.indexedDB.open("database2", 2);
 
                     request.onupgradeneeded = function () {
                         db = request.result;
+                        
+                        var objectStore = db.createObjectStore("timetable12", { keyPath: "id", autoIncrement: true});
 
-                        var objectStore = db.createObjectStore("timetable12", { keyPath: "id", autoIncrement: true });
-
-                        var dateIndex = objectStore.createIndex("inputDate", "inputDate", { unique: true });
-                        var i06Index = objectStore.createIndex("input06", "input06", { unique: true });
-                        var i07Index = objectStore.createIndex("input07", "input07", { unique: true });
-                        var i08Index = objectStore.createIndex("input08", "input08", { unique: true });
-                        var i09Index = objectStore.createIndex("input09", "input09", { unique: true });
-                        var i10Index = objectStore.createIndex("input10", "input10", { unique: true });
-                        var i11Index = objectStore.createIndex("input11", "input11", { unique: true });
-                        var i12Index = objectStore.createIndex("input12", "input12", { unique: true });
-                        var i13Index = objectStore.createIndex("input13", "input13", { unique: true });
-                        var i14Index = objectStore.createIndex("input14", "input14", { unique: true });
-                        var i15Index = objectStore.createIndex("input15", "input15", { unique: true });
-                        var i16Index = objectStore.createIndex("input16", "input16", { unique: true });
-                        var i17Index = objectStore.createIndex("input17", "input17", { unique: true });
-                        var i18Index = objectStore.createIndex("input18", "input18", { unique: true });
-                        var i19Index = objectStore.createIndex("input19", "input19", { unique: true });
-                        var i20Index = objectStore.createIndex("input20", "input20", { unique: true });
-                        var i21Index = objectStore.createIndex("input21", "input21", { unique: true });
-                        var i22Index = objectStore.createIndex("input22", "input22", { unique: true });
-                        var i23Index = objectStore.createIndex("input23", "input23", { unique: true });
-                        var i00Index = objectStore.createIndex("input00", "input00", { unique: true });
-                        var i01Index = objectStore.createIndex("input01", "input01", { unique: true });
-                        var i02Index = objectStore.createIndex("input02", "input02", { unique: true });
-                        var i03Index = objectStore.createIndex("input03", "input03", { unique: true });
-                        var i04Index = objectStore.createIndex("input04", "input04", { unique: true });
-                        var i05Index = objectStore.createIndex("input05", "input05", { unique: true });
+                        var iDateIndex = objectStore.createIndex("iDate", "iDate", { unique: true });
+                        var i06Index = objectStore.createIndex("i06", "i06", { unique: true });
+                        var i07Index = objectStore.createIndex("i07", "i07", { unique: true });
+                        var i08Index = objectStore.createIndex("i08", "i08", { unique: true });
+                        var i09Index = objectStore.createIndex("i09", "i09", { unique: true });
+                        var i10Index = objectStore.createIndex("i10", "i10", { unique: true });
+                        var i11Index = objectStore.createIndex("i11", "i11", { unique: true });
+                        var i12Index = objectStore.createIndex("i12", "i12", { unique: true });
+                        var i13Index = objectStore.createIndex("i13", "i13", { unique: true });
+                        var i14Index = objectStore.createIndex("i14", "i14", { unique: true });
+                        var i15Index = objectStore.createIndex("i15", "i15", { unique: true });
+                        var i16Index = objectStore.createIndex("i16", "i16", { unique: true });
+                        var i17Index = objectStore.createIndex("i17", "i17", { unique: true });
+                        var i18Index = objectStore.createIndex("i18", "i18", { unique: true });
+                        var i19Index = objectStore.createIndex("i19", "i19", { unique: true });
+                        var i20Index = objectStore.createIndex("i20", "i20", { unique: true });
+                        var i21Index = objectStore.createIndex("i21", "i21", { unique: true });
+                        var i22Index = objectStore.createIndex("i22", "i22", { unique: true });
+                        var i23Index = objectStore.createIndex("i23", "i23", { unique: true });
+                        var i24Index = objectStore.createIndex("i24", "i24", { unique: true });
+                        var i01Index = objectStore.createIndex("i01", "i01", { unique: true });
+                        var i02Index = objectStore.createIndex("i02", "i02", { unique: true });
+                        var i03Index = objectStore.createIndex("i03", "i03", { unique: true });
+                        var i04Index = objectStore.createIndex("i04", "i04", { unique: true });
+                        var i05Index = objectStore.createIndex("i05", "i05", { unique: true });
 
                         var data = {
-                            iDate: "2021-1-1",
+                            iDate: "2021-01-23",
                             i06: "ready to write",
                             i07: "ready to write",
                             i08: "ready to write",
@@ -767,27 +753,24 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                             i21: "ready to write",
                             i22: "ready to write",
                             i23: "ready to write",
-                            i00: "ready to write",
+                            i24: "ready to write",
                             i01: "ready to write",
                             i02: "ready to write",
                             i03: "ready to write",
                             i04: "ready to write",
                             i05: "ready to write"
-                        };
+                        };                       
                     objectStore.put(data);
                     };
 
                     request.onerror = function () {
-                        h2.value += "Error loading database.";
+                        h2.textContent += "Error loading database.";
                     };
                     request.onsuccess = function () {
-                        h2.value += "Success!";
+                        h2.textContent += "Developer Sungho Hwang";
                     };
 
                     updateButton.onclick = function () {
-                        db = request.result;
-                        var transaction = db.transaction("timetable12", "readwrite");
-                        var objectStore = transaction.objectStore("timetable12");
 
                         var dateVal = window.document.getElementById("inputDate").value;
                         var input06Val = window.document.getElementById("input06").value;
@@ -808,133 +791,99 @@ var myapi = class extends ExtensionCommon.ExtensionAPI {
                         var input21Val = window.document.getElementById("input21").value;
                         var input22Val = window.document.getElementById("input22").value;
                         var input23Val = window.document.getElementById("input23").value;
-                        var input00Val = window.document.getElementById("input00").value;
+                        var input24Val = window.document.getElementById("input24").value;
                         var input01Val = window.document.getElementById("input01").value;
                         var input02Val = window.document.getElementById("input02").value;
                         var input03Val = window.document.getElementById("input03").value;
                         var input04Val = window.document.getElementById("input04").value;
                         var input05Val = window.document.getElementById("input05").value;
 
-                            var data = {
-                                iDate: dateVal,
-                                i06: input06Val,
-                                i07: input07Val,
-                                i08: input08Val,
-                                i09: input09Val,
-                                i10: input10Val,
-                                i11: input11Val,
-                                i12: input12Val,
-                                i13: input13Val,
-                                i14: input14Val,
-                                i15: input15Val,
-                                i16: input16Val,
-                                i17: input17Val,
-                                i18: input18Val,
-                                i19: input19Val,
-                                i20: input20Val,
-                                i21: input21Val,
-                                i22: input22Val,
-                                i23: input23Val,
-                                i00: input00Val,
-                                i01: input01Val,
-                                i02: input02Val,
-                                i03: input03Val,
-                                i04: input04Val,
-                                i05: input05Val
-                            };
-                            objectStore.put(data);  
+                        db = request.result;
+                        var transaction = db.transaction("timetable12", "readwrite");
+                        var objectStore = transaction.objectStore("timetable12");
 
-                            transaction.oncomplete = function () {
-                                h2.textContent += ">";
-                            };
-                        }
-                    previousButton.onclick = function () {
-                        db = request.result;
-                        var transaction = db.transaction("timetable12", "readwrite");
-                        var objectStore = db.transaction(["timetable12"]).objectStore("timetable12");
-                        var timetableId = objectStore.index("id");
-                        for (var i = 1825; i < timetableId.length; i--) {
-                        var ttIndex = objectStore.index("id[i]");
-                        ttIndex.openCursor().onsuccess = function(event) {
-                        var cursor = event.target.reuslt;
-                        if (cursor) {
-                        window.document.getElementById("inputDate").toString("iDate: " + cursor.result.iDate);
-                        window.document.getElementById("input06").toString("i06: " + cursor.resut.i06);
-                        window.document.getElementById("input07").toString("i07: " + cursor.resut.i07);
-                        window.document.getElementById("input08").toString("i08: " + cursor.resut.i08);
-                        window.document.getElementById("input09").toString("i09: " + cursor.resut.i09);
-                        window.document.getElementById("input10").toString("i10: " + cursor.resut.i10);
-                        window.document.getElementById("input11").toString("i11: " + cursor.resut.i11);
-                        window.document.getElementById("input12").toString("i12: " + cursor.resut.i12);
-                        window.document.getElementById("input13").toString("i13: " + cursor.resut.i13);
-                        window.document.getElementById("input14").toString("i14: " + cursor.resut.i14);
-                        window.document.getElementById("input15").toString("i15: " + cursor.resut.i15);
-                        window.document.getElementById("input16").toString("i16: " + cursor.resut.i16);
-                        window.document.getElementById("input17").toString("i17: " + cursor.resut.i17);
-                        window.document.getElementById("input18").toString("i18: " + cursor.resut.i18);
-                        window.document.getElementById("input19").toString("i19: " + cursor.resut.i19);
-                        window.document.getElementById("input20").toString("i20: " + cursor.resut.i20);
-                        window.document.getElementById("input21").toString("i21: " + cursor.resut.i21);
-                        window.document.getElementById("input22").toString("i22: " + cursor.resut.i22);
-                        window.document.getElementById("input23").toString("i23: " + cursor.resut.i23);
-                        window.document.getElementById("input00").toString("i00: " + cursor.resut.i00);
-                        window.document.getElementById("input01").toString("i01: " + cursor.resut.i01);
-                        window.document.getElementById("input02").toString("i02: " + cursor.resut.i02);
-                        window.document.getElementById("input03").toString("i03: " + cursor.resut.i03);
-                        window.document.getElementById("input04").toString("i04: " + cursor.resut.i04);
-                        window.document.getElementById("input05").toString("i05: " + cursor.resut.i05);
-                         cursor.continue();
-                                }
+                        objectStore.openCursor().onsuccess = function (event) {
+                            var cursor = event.target.result;
+                            if (cursor) {
+                                var data = cursor.value;
+                                data.iDate = dateVal;
+                                data.i06 = input06Val;
+                                data.i07 = input07Val;
+                                data.i08 = input08Val;
+                                data.i09 = input09Val;
+                                data.i10 = input10Val;
+                                data.i11 = input11Val;
+                                data.i12 = input12Val;
+                                data.i13 = input13Val;
+                                data.i14 = input14Val;
+                                data.i15 = input15Val;
+                                data.i16 = input16Val;
+                                data.i17 = input17Val;
+                                data.i18 = input18Val;
+                                data.i19 = input19Val;
+                                data.i20 = input20Val;
+                                data.i21 = input21Val;
+                                data.i22 = input22Val;
+                                data.i23 = input23Val;
+                                data.i24 = input24Val;
+                                data.i01 = input01Val;
+                                data.i02 = input02Val;
+                                data.i03 = input03Val;
+                                data.i04 = input04Val;
+                                data.i05 = input05Val;
+                                var request = cursor.update(data);
+                                request.onsuccess = function () {
+                                    h2.textContent += ">";
+                                };
+                                cursor.continue();
                             };
                         };
-                            transaction.oncomplete = function () {
-                                h2.textContent += "-1";
-                            };
-                        }
-                    nextButton.onclick = function () {
+                    };
+                    displayButton.onclick = function () {
+
                         db = request.result;
                         var transaction = db.transaction("timetable12", "readwrite");
-                        var objectStore = db.transaction(["timetable12"]).objectStore("timetable12");
-                        var timetableId = objectStore.index("id");
-                        for (var j = 1; j < timetableId.length; j++) {
-                        var ttIndex = objectStore.index("id[j]");
-                        ttIndex.openCursor().onsuccess = function(event) {
-                        var cursor = event.target.reuslt;
-                        if (cursor) {
-                        window.document.getElementById("inputDate").toString("iDate: " + cursor.result.iDate);
-                        window.document.getElementById("input06").toString("i06: " + cursor.resut.i06);
-                        window.document.getElementById("input07").toString("i07: " + cursor.resut.i07);
-                        window.document.getElementById("input08").toString("i08: " + cursor.resut.i08);
-                        window.document.getElementById("input09").toString("i09: " + cursor.resut.i09);
-                        window.document.getElementById("input10").toString("i10: " + cursor.resut.i10);
-                        window.document.getElementById("input11").toString("i11: " + cursor.resut.i11);
-                        window.document.getElementById("input12").toString("i12: " + cursor.resut.i12);
-                        window.document.getElementById("input13").toString("i13: " + cursor.resut.i13);
-                        window.document.getElementById("input14").toString("i14: " + cursor.resut.i14);
-                        window.document.getElementById("input15").toString("i15: " + cursor.resut.i15);
-                        window.document.getElementById("input16").toString("i16: " + cursor.resut.i16);
-                        window.document.getElementById("input17").toString("i17: " + cursor.resut.i17);
-                        window.document.getElementById("input18").toString("i18: " + cursor.resut.i18);
-                        window.document.getElementById("input19").toString("i19: " + cursor.resut.i19);
-                        window.document.getElementById("input20").toString("i20: " + cursor.resut.i20);
-                        window.document.getElementById("input21").toString("i21: " + cursor.resut.i21);
-                        window.document.getElementById("input22").toString("i22: " + cursor.resut.i22);
-                        window.document.getElementById("input23").toString("i23: " + cursor.resut.i23);
-                        window.document.getElementById("input00").toString("i00: " + cursor.resut.i00);
-                        window.document.getElementById("input01").toString("i01: " + cursor.resut.i01);
-                        window.document.getElementById("input02").toString("i02: " + cursor.resut.i02);
-                        window.document.getElementById("input03").toString("i03: " + cursor.resut.i03);
-                        window.document.getElementById("input04").toString("i04: " + cursor.resut.i04);
-                        window.document.getElementById("input05").toString("i05: " + cursor.resut.i05);
-                                }
+                        var objectStore = transaction.objectStore("timetable12");
+
+                        objectStore.openCursor().onsuccess = function (event) {
+                            var cursor = event.target.result;
+                            if (cursor) {
+
+                                window.document.getElementById("inputDate").value = cursor.value.iDate;
+                                window.document.getElementById("input06").value = cursor.value.i06;
+                                window.document.getElementById("input07").value = cursor.value.i07;
+                                window.document.getElementById("input08").value = cursor.value.i08;
+                                window.document.getElementById("input09").value = cursor.value.i09;
+                                window.document.getElementById("input10").value = cursor.value.i10;
+                                window.document.getElementById("input11").value = cursor.value.i11;
+                                window.document.getElementById("input12").value = cursor.value.i12;
+                                window.document.getElementById("input13").value = cursor.value.i13;
+                                window.document.getElementById("input14").value = cursor.value.i14;
+                                window.document.getElementById("input15").value = cursor.value.i15;
+                                window.document.getElementById("input16").value = cursor.value.i16;
+                                window.document.getElementById("input17").value = cursor.value.i17;
+                                window.document.getElementById("input18").value = cursor.value.i18;
+                                window.document.getElementById("input19").value = cursor.value.i19;
+                                window.document.getElementById("input20").value = cursor.value.i20;
+                                window.document.getElementById("input21").value = cursor.value.i21;
+                                window.document.getElementById("input22").value = cursor.value.i22;
+                                window.document.getElementById("input23").value = cursor.value.i23;
+                                window.document.getElementById("input24").value = cursor.value.i24;
+                                window.document.getElementById("input01").value = cursor.value.i01;
+                                window.document.getElementById("input02").value = cursor.value.i02;
+                                window.document.getElementById("input03").value = cursor.value.i03;
+                                window.document.getElementById("input04").value = cursor.value.i04;
+                                window.document.getElementById("input05").value = cursor.value.i05;
+
+                                cursor.continue();
+                                request.onsuccess = function () {
+                                    h2.textContent += "^^";
+                                };
                             };
                         };
-                            transaction.oncomplete = function () {
-                                h2.textContent += "+1";
-                            };
-                        }
                     }
-                },
+                }
+            },
                 setThree: function() {
                     var windows = Services.wm.getEnumerator("mail:3pane");
                     while (windows.hasMoreElements()) {
