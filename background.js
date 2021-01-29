@@ -1,25 +1,29 @@
-async function execute(theme) { 
+/*
 
-var theme = await browser.theme.getCurrent();
+// Takeing care of this later
 
-var getCurrentFrameColor = theme.colors.frame;
-var getCurrentBorderColor = theme.colors.toolbar_field_text;
+async function execute(theme) {
+    var theme = await browser.theme.getCurrent();
 
-browser.myapi.setSeven("time-table", "backgroundColor", getCurrentFrameColor); 
-browser.myapi.setEight("time-table", "borderColor", getCurrentBorderColor); 
-function update() {
-theme.update(getCurrentFrameColor);
-theme.update(getCurrentBorderColor);
-}
-update();
+    var getCurrentFrameColor = theme.colors.frame;
+    var getCurrentBorderColor = theme.colors.toolbar_field_text;
+
+    browser.myapi.setSeven("time-table", "backgroundColor", getCurrentFrameColor);
+    browser.myapi.setEight("time-table", "borderColor", getCurrentBorderColor);
+
+	theme.update(getCurrentFrameColor);
+	theme.update(getCurrentBorderColor);
 };
-execute();
+
 browser.theme.onUpdated.addListener(execute);
 
+*/
 
-
-
-
-
-
-    
+// Register a webExtension iframe inside the calendar
+messenger.ex_customui.add(
+  messenger.ex_customui.LOCATION_CALENDAR,
+  "timetable/timetable.html",
+  {
+      height: 500
+  }
+);
