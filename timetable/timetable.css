@@ -1,0 +1,15 @@
+#timetable_area > div {
+	display: flex;
+}
+
+#timetable_area > div > label {
+	flex-grow: 0;
+	margin: 1px 1ex 1px 0;
+	white-space: nowrap;	
+}
+
+#timetable_area > div > input {
+	min-width: 5em !important;
+	flex-grow: 1;
+	margin: 1px 1ex 1px 1ex;
+}
